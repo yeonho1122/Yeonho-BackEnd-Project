@@ -2,12 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.controller.User;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -42,12 +37,17 @@ public class HelloWolrdController {
         return "상품번호:"+id;
     }
 
-    @PostMapping("/singup")
-            public String singup(User user)
+    @PostMapping("/signup")
+            public String signup(@RequestBody User user)
     {
         return "회원가입 완료";
     }
 
+    @PostMapping("/signup2")
+    public User signup2(@RequestBody User user)
+    {
+        return user;
+    }
 
 
 
