@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.controller.User;
 
+import com.example.demo.dto.signupRequestDto;
+import com.example.demo.dto.signupResponseDto;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -49,6 +51,16 @@ public class HelloWolrdController {
         return user;
     }
 
+    @PostMapping("/signup3")
+    public signupResponseDto signup3(@RequestBody signupResponseDto request)
+    {
+        signupResponseDto response = new signupResponseDto();
+
+        response.name = request.name;
+        response.email = request.email;
+
+        return response;
+    }
 
 
 
