@@ -40,6 +40,20 @@ public  class SignupService {
         return user;
     }
 
+    public User UpdateUser(int id, User updatedUser) {
+        User user = userRepository.findById(id);
+
+        if (user == null) {
+            return null;
+        }
+        user.name = updatedUser.name;
+        user.Password =updatedUser.Password;
+        user.email =updatedUser.email;
+        user.age =updatedUser.age;
+
+        return user;
+    }
+
 }
 
 

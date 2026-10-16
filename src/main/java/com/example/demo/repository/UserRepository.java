@@ -32,4 +32,14 @@ public class UserRepository {
         }
         return null;
     }
+
+    public  User findById(int id) {
+        for (User user : users) {
+            if (user.Id == id) {
+                return user;
+            }
+
+        }
+        return null;
+    }
 }

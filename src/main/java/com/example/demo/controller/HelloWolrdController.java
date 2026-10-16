@@ -68,7 +68,7 @@ public class HelloWolrdController {
         return signupService.signup(user);
     }
 
-    @GetMapping("/users")
+    @GetMapping("/gi")
     public List<User> findAllUsers(){
         return signupService.findAllUsers();
     }
@@ -81,6 +81,19 @@ public class HelloWolrdController {
         }
 
         return ResponseEntity.ok(user);
+    }
+    @PutMapping("/users/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable int id,
+                                           @RequestBody User updatedUser){
+        User user = signupService.UpdateUser(id,updatedUser);
+
+        if (user == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(user);
+
+
+
     }
 
 
